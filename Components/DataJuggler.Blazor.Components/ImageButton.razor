@@ -1,0 +1,56 @@
+﻿@using BlazorStyled
+
+<Styled @bind-Classname="ButtonContainerStyle">
+    position: @Position;
+    left: @LeftStyle;
+    top: @TopStyle;    
+    z-index: @ZIndex;   
+    display: @VisibleStyle;
+    outline: none;
+    border: none;    
+    width: @WidthStyle;    
+</Styled>
+<Styled @bind-Classname="ButtonStyle">
+    background-image: url('@ImageUrl');    
+    background-size: 100% 100%;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;    
+    background-repeat: no-repeat;
+    background-color: transparent;    
+    width: @WidthStyle;
+    height: @HeightStyle;
+    white-space: nowrap;
+    font-size: @TextSizeStyle;
+    color: @TextColorName;
+    vertical-align: central;
+</Styled>
+<Styled @bind-Classname="ButtonTextAlignStyle">
+    text-align: @ButtonTextAlign;
+</Styled>
+
+<style>
+    .imagebutton
+    {
+        outline: none;
+        border: none;
+    }
+    .imagebutton:focus
+    {
+        outline: none !important;
+        border: none !important;
+    }
+    .imagebutton:hover
+    {
+        outline: none;
+        border: none;
+    }
+</style>
+
+<div class="@ButtonContainerStyle">
+    <button class="imagebutton @ButtonStyle" @onclick="ButtonClicked">
+        <span class="@ButtonTextAlignStyle">@ButtonText</span>
+    </button>    
+</div>

@@ -1,0 +1,59 @@
+﻿@namespace DataJuggler.Blazor.Components
+@using DataJuggler.UltimateHelper
+@using DataJuggler.Excelerate;
+@using DataJuggler.Blazor.Components
+
+@if (ShowHeader)
+{
+    <div class="@HeaderClassName">
+        @HeaderText
+    </div>
+}
+
+@if ((ShowColumnHeaders) && (HasColumns))
+{
+    // iterate each column
+    foreach (Column column in Columns)
+    {
+        <div class="@column.ClassName">@column.ColumnName</div>
+    }
+}
+
+<div class="@ClassName">
+@if (HasRows)
+{  
+
+    @foreach (Row row in Rows)
+    {
+        // if the row has columns
+        if (row.HasColumns)
+        {
+            <div class="@row.ClassName">
+
+            @foreach (Column column in row.Columns)
+            {
+                
+                if ((row.EditMode) && (!column.ReadOnly) && (column.EditMode))
+                {
+                    <div class="displayinline @column.ClassName">
+                    <ValidationComponent Name=column.ColumnName Unit="@column.Unit" Width=column.Width 
+                        Height=column.Height RowId=row.Id ColumnId=column.Id ZIndex="@column.ZIndex"
+                        SetFocusOnFirstRender=column.SetFocusOnFirstRender ClassName="@column.EditorClassName"
+                        Text="@column.EditorText"  Parent=this></ValidationComponent>
+                    </div>
+                }
+                else
+                {
+                    <div class="down0 @column.ClassName" @ondblclick="() => OnDoubleClick(row, column.ColumnNumber)">@column.ColumnText</div>
+                }
+            }
+            </div>
+
+            <br />
+        }
+    }    
+}
+</div>
+
+
+

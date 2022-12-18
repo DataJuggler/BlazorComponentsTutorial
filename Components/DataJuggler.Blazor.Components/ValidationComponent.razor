@@ -1,0 +1,66 @@
+﻿@using BlazorStyled 
+
+<Styled @bind-Classname="@LabelStyle">
+    color: @LabelColor;
+    background-color: @LabelBackgroundColor;
+    display: @Display;
+    width: @LabelWidthStyle;
+    height: @HeightStyle;
+    min-width: @LabelWidthStyle;
+    text-align: right !important;    
+    position: relative;
+    top: @TopStyle;    
+    left: @LeftStyle;
+    font-size: @LabelFontSizeStyle;
+    float: left;
+</Styled>
+<Styled @bind-Classname="@TextBoxStyle">
+    background-color: @TextBoxBackColor;   
+    width: @WidthStyle;
+    Height: @HeightStyle;    
+    display: @Display;    
+    float: left;
+</Styled>
+<Styled @bind-Classname="@CheckBoxStyle">
+    background-color: @TextBoxBackColor;
+    position: relative;
+    left: @CheckBoxXStyle;
+    top: @CheckBoxYStyle;
+    position: relative;
+</Styled>
+<Styled @bind-Classname="@ImageStyle">
+    background-image: url('@ImageUrl');
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: 100% 100%;
+    width: 3%;
+    height: 2.4vh;
+    display: inline-block;
+    z-index: 10;    
+    position: relative;
+    left: -6.4% !important;
+    transform: scale(@ImageScale);
+    transform-origin: left;
+</Styled>
+<Styled @bind-Classname="@ValidationControlStyle">
+    display: @DisplayStyle;
+    line-height: 3.2vh;
+    font-size: @FontSizeStyle;
+    font-family: Arial, Verdana;    
+    margin-top: 2vh;
+    margin-left: 2%;
+    margin-bottom: 1vh;    
+    z-index: @ZIndex;    
+    display: @DisplayStyle;
+    position: relative;    
+    left: @LeftStyle;
+    top: @TopStyle;
+    width: @WidthStyle;
+    background-color: @BackgroundColor;
+    white-space: nowrap;
+</Styled>
+
+<div class="@ValidationControlStyle">
+    <div class="column"></div>
+    <div class="column2"></div>
+</div>

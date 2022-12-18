@@ -7,8 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Components\**" />
+    <Content Remove="Components\**" />
+    <EmbeddedResource Remove="Components\**" />
+    <None Remove="Components\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BlazorStyled" Version="3.1.0" />
-    <PackageReference Include="DataJuggler.Blazor.Components" Version="7.3.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="Components\DataJuggler.Blazor.Components\DataJuggler.Blazor.Components.csproj" />
   </ItemGroup>
 
 </Project>
